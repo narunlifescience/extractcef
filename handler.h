@@ -15,7 +15,6 @@ class handler : public QObject {
 
  private:
   void readcefstream(QFile *file);
-  void prepare(QFile *file);
 
  private:
   QString filename_;

@@ -14,7 +14,6 @@ handler::handler(QString filename) : filename_(filename) {
     delete file;
     return;
   } else {
-    prepare(file);
     readcefstream(file);
     delete file;
   }
@@ -74,19 +73,6 @@ void handler::readcefstream(QFile *file) {
                << s << "\n";
       }
     }
-
     tsvfile->close();
-  }
-}
-
-void handler::prepare(QFile *file) {
-  QString line = QString();
-  while (!file->atEnd()) {
-    line = file->readLine().trimmed();
-    if (line.startsWith("<p") && line.contains("rt=\"") &&
-        line.contains("x=\"") && line.contains("y=\"") &&
-        line.contains("v=\"") && line.contains("z=\"") &&
-        line.contains("s=\"")) {
-    }
   }
 }
